@@ -1,5 +1,9 @@
 package hello.thymeleaf.basic
 
+import jakarta.servlet.http.HttpServletRequest
+import jakarta.servlet.http.HttpServletResponse
+import jakarta.servlet.http.HttpSession
+import org.springframework.stereotype.Component
 import org.springframework.stereotype.Controller
 import org.springframework.ui.Model
 import org.springframework.web.bind.annotation.GetMapping
@@ -41,10 +45,29 @@ class BasicController {
         return "basic/variable"
     }
 
+    @GetMapping("/basic-objects")
+    fun basicObjects(model: Model, request: HttpServletRequest, response: HttpServletResponse, session:HttpSession): String {
+        model.addAttribute("sessionData", "Hello Session")
+        model.addAttribute("request", request)
+        model.addAttribute("response", response)
+        model.addAttribute("servletContext", request.servletContext)
+
+        session.setAttribute("sessionData", "Hello Session")
+
+        return "basic/basic-objects"
+    }
+
     companion object {
         class User(
             var username: String,
             var age: Int
         )
+
+        @Component("helloBean")
+        class HelloBean {
+            fun hello(data: String): String {
+                return "Hello $data"
+            }
+        }
     }
 }
