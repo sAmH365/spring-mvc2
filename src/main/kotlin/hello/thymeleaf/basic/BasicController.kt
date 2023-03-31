@@ -90,6 +90,21 @@ class BasicController {
         return "basic/attribute"
     }
 
+    @GetMapping("/each")
+    fun each(model: Model): String {
+        addUsers(model)
+        return "basic/each"
+    }
+
+    private fun addUsers(model: Model) {
+        val list = arrayListOf<User>()
+        list.add(User("UserA", 10))
+        list.add(User("UserB", 20))
+        list.add(User("UserC", 30))
+
+        model.addAttribute("users", list)
+    }
+
     companion object {
         class User(
             var username: String,
