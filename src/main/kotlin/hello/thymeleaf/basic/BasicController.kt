@@ -72,6 +72,12 @@ class BasicController {
         return "basic/link"
     }
 
+    @GetMapping("/literal")
+    fun literal(model: Model): String {
+        model.addAttribute("data", "Spring!")
+        return "basic/literal"
+    }
+
     companion object {
         class User(
             var username: String,
