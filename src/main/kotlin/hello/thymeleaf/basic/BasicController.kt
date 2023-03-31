@@ -96,6 +96,12 @@ class BasicController {
         return "basic/each"
     }
 
+    @GetMapping("/condition")
+    fun condition(model: Model): String {
+        addUsers(model)
+        return "basic/condition"
+    }
+
     private fun addUsers(model: Model) {
         val list = arrayListOf<User>()
         list.add(User("UserA", 10))
