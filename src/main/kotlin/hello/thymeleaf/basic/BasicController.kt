@@ -85,6 +85,11 @@ class BasicController {
         return "basic/operation"
     }
 
+    @GetMapping("/attribute")
+    fun attribute(): String {
+        return "basic/attribute"
+    }
+
     companion object {
         class User(
             var username: String,
