@@ -114,6 +114,13 @@ class BasicController {
         return "basic/block"
     }
 
+    @GetMapping("/javascript")
+    fun javascript(model: Model): String {
+        model.addAttribute("user", User("userAA", 100))
+        addUsers(model)
+        return "basic/javascript"
+    }
+
     private fun addUsers(model: Model) {
         val list = arrayListOf<User>()
         list.add(User("UserA", 10))
