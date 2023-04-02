@@ -108,6 +108,12 @@ class BasicController {
         return "basic/comments"
     }
 
+    @GetMapping("/block")
+    fun block(model: Model): String {
+        addUsers(model)
+        return "basic/block"
+    }
+
     private fun addUsers(model: Model) {
         val list = arrayListOf<User>()
         list.add(User("UserA", 10))
