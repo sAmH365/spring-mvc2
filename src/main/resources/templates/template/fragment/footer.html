@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+
+<footer th:fragment="copy">
+    푸터 자리 입니다.
+</footer>
+
+<div th:fragment="test">
+    조각 테스트!!
+</div>
+
+<footer th:fragment="copyParam(param1, param2)">
+    <p>파라미터 자리 입니다.</p>
+    <p th:text="${param1}" />
+    <p th:text="${param2}" />
+</footer>
+</body>
+</html>
